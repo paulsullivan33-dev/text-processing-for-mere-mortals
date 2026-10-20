@@ -1,0 +1,23 @@
+site_name: Text Processing for Mere Mortals
+site_description: Plain-language text processing. grep to select lines, sed to edit them as they pass, awk to split lines into fields and do the arithmetic, practised on a specimen log, an account file, an order sheet, a config file, and one messy list.
+site_url: https://paulsullivan33-dev.github.io/text-processing-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Text Processing Is: what-text-processing-is.md
+  - "grep: Finding Lines": grep-finding-lines.md
+  - "grep: Patterns and Power": grep-patterns-and-power.md
+  - "sed: Substituting": sed-substituting.md
+  - "sed: Doing More": sed-doing-more.md
+  - "awk: Fields and Records": awk-fields-and-records.md
+  - "awk: Computing": awk-computing.md
+  - The Trio Together: the-trio-together.md
+  - Recipes: recipes.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

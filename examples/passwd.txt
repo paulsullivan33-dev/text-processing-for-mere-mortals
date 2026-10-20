@@ -1,0 +1,12 @@
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+paul:x:1000:1000:Paul Sullivan:/home/paul:/bin/bash
+katherine:x:1001:1001:Katherine Sullivan:/home/katherine:/bin/zsh
+guest:x:1002:1002:Guest Account:/home/guest:/bin/sh
+backupsvc:x:1003:1003:Backup Service:/srv/backup:/bin/false
+oldacct:x:1004:1004:Old Account:/home/oldacct:/usr/sbin/nologin

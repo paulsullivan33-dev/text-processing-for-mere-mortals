@@ -1,0 +1,73 @@
+The lab files — what each specimen is
+====================================================================
+
+All five files are invented for this guide.
+No real log, account, customer, or order
+appears in them. Copy them to a scratch
+folder and work there (chapter 1 shows
+how), so the originals survive experiments.
+
+
+app.log — 56 lines
+    A small server's log over three days,
+    2026-10-17 to 2026-10-19. Every line is:
+    date, time, level (INFO, WARN, ERROR,
+    DEBUG), component (auth, http, cron,
+    app, disk), then a message, often ending
+    in key=value pairs (user=, ip=, reason=).
+    Known answers: 10 ERROR lines (3, 5, and
+    2 per day), 11 failed logins, and one
+    address — 198.51.100.23 — that knocks
+    more than anyone. External addresses
+    are in the ranges reserved for
+    documentation (198.51.100.0/24 and
+    203.0.113.0/24); internal ones are
+    192.168.1.x and 10.0.0.5.
+
+passwd.txt — 12 lines
+    Accounts in passwd format: name,
+    password field (x), user id, group id,
+    real name, home directory, shell —
+    separated by colons. Five accounts have
+    human-range uids (1000-1004); nobody
+    sits at 65534, which is the guide's
+    standing warning about numeric ranges.
+
+orders.csv — 15 lines (header + 14 orders)
+    Columns: order_id, date, customer,
+    item, quantity, unit_price, status.
+    Statuses are shipped (9), pending (3),
+    and cancelled (2). Comma-clean by
+    design: no quoted fields, no commas
+    inside values. Shipped orders total
+    248.66 in revenue — chapter 7 earns
+    that number rather than trusting it.
+
+app.conf — 10 lines
+    Settings as "name = value", with
+    comments starting #. db_host appears
+    twice: once live, once commented out
+    with an old address — recipe 4 in the
+    guide is about not grabbing the wrong
+    one.
+
+messy.txt — 15 lines
+    A shopping list with mixed capitals,
+    leading and trailing spaces, one blank
+    line, and duplicates that differ only
+    by case or spaces. Eight real items
+    hide in it. (This file's trailing
+    spaces are deliberate — if your editor
+    "helpfully" strips them on save, the
+    mess is gone and the recipes have
+    nothing to clean.)
+
+
+Files the guide asks you to create
+----------------------------------
+    patterns.txt  two grep patterns, ch. 3
+    fix.sed       three sed commands, ch. 5
+    site/         a two-file tree for the
+                  recursive search, ch. 3
+Creating them is part of the lessons; the
+chapters show their contents exactly.

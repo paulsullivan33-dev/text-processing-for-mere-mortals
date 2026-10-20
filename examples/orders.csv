@@ -1,0 +1,15 @@
+order_id,date,customer,item,quantity,unit_price,status
+1001,2026-10-15,paul,widget,3,9.99,shipped
+1002,2026-10-15,katherine,gadget,1,24.50,shipped
+1003,2026-10-16,paul,sprocket,12,1.75,shipped
+1004,2026-10-16,guest,cable,2,6.25,pending
+1005,2026-10-17,katherine,widget,5,9.99,shipped
+1006,2026-10-17,paul,gadget,2,24.50,cancelled
+1007,2026-10-18,guest,adapter,4,12.00,shipped
+1008,2026-10-18,katherine,cable,1,6.25,shipped
+1009,2026-10-19,paul,widget,2,9.99,pending
+1010,2026-10-19,guest,sprocket,20,1.75,shipped
+1011,2026-10-19,katherine,adapter,2,12.00,shipped
+1012,2026-10-19,paul,cable,3,6.25,cancelled
+1013,2026-10-19,guest,widget,1,9.99,shipped
+1014,2026-10-19,katherine,gadget,1,24.50,pending

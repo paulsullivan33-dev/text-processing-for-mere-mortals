@@ -1,0 +1,82 @@
+Text processing commands — the everyday set
+from "Text Processing for Mere Mortals"
+====================================================================
+
+Every output quoted in the guide was captured
+from GNU grep 3.11, GNU sed 4.9, and mawk
+1.3.4, against the specimen files in this
+directory (see lab-notes.txt).
+
+
+FINDING LINES (grep)
+--------------------
+    grep ERROR app.log          lines containing ERROR
+    grep -c ERROR app.log       how many lines match
+    grep -n 'login failed' app.log   matches, with line numbers
+    grep -i 'Login Failed' app.log   ignore case
+    grep -v nologin passwd.txt  lines that do NOT match
+    grep -C 1 'account locked' app.log   match + 1 line each side
+    grep '^2026-10-19' app.log  starts with (anchor ^)
+    grep 'bash$' passwd.txt     ends with (anchor $)
+    grep -w login passwd.txt    whole word only (skips nologin)
+    grep -F '192.168.1.10' app.log   pattern as plain text
+    grep -l shipped orders.csv app.log passwd.txt   which files match
+    grep -c paul app.log passwd.txt orders.csv      count per file
+
+
+PATTERNS AND POWER (grep)
+-------------------------
+    grep 'usage at [0-9][0-9]%' app.log   [0-9] is ONE digit
+    grep -E 'usage at [0-9]+%' app.log    extended: + is "one or more"
+    grep -Ec 'ERROR|WARN' app.log         extended: | is "or"
+    grep -e timeout -e disk-full app.log  several patterns
+    grep -f patterns.txt app.log          patterns from a file
+    grep -rl 'ERROR' site                 search a tree, list files
+    grep -rl --include='*.txt' 'errors' site   only .txt files
+    grep -q ERROR app.log       quiet: the exit code is the answer
+                                0 matched, 1 no match, 2 error
+
+
+EDITING LINES (sed)
+-------------------
+    sed 's/login/sign-in/'      replace first match per line
+    sed 's/:/ | /g'             g: every match on the line
+    sed 's/apples/Apples/i'     i: pattern ignores case
+    sed -n '5,7p' app.log       print only lines 5-7 (-n + p)
+    sed -n '/ERROR/p' app.log   print only lines matching a pattern
+    sed -n '/login failed/s/failed/FAILED/p' app.log  edit + print some
+    sed 's|/bin/bash|/usr/bin/bash|'   pick a delimiter that reads well
+    sed '/^#/d' app.conf        delete lines matching a pattern
+    sed -e 's/INFO/I/' -e 's/WARN/W/'   several edits, one pass
+    sed -f fix.sed app.log      edits from a script file
+    sed 's/user=\([a-z]*\)/[\1]/'     capture group, \1 reuses it
+    sed 's/ERROR/[&]/'          & in a replacement = the whole match
+    sed -i.bak 's/ *$//' file   edit in place, keep file.bak
+                                (macOS/BSD: sed -i '' '...' for none)
+
+
+FIELDS AND ARITHMETIC (awk)
+---------------------------
+    awk '{print $1, $3}' app.log          fields 1 and 3
+    awk -F: '{print $1, $7}' passwd.txt   split on colons
+    awk '{print $NF}' app.log             last field, any width
+    awk '$3 == "ERROR"' app.log           condition on a field
+    awk -F: '$3 >= 1000 && $3 < 60000' passwd.txt   numeric range
+    awk -F, 'NR>1 {print $4}' orders.csv  NR>1 skips a header row
+    awk -F, 'NR>1 {sum += $5} END {print sum}' orders.csv   a total
+    awk '$3 == "WARN" {n++} END {print n}' app.log          a count
+    awk '{count[$3]++} END {for (k in count) print k, count[k]}' app.log
+                                          a total per category
+    awk 'END {print NR, FNR}' app.log passwd.txt  records in all, in last
+
+
+PIPELINES
+---------
+    awk '{print $3}' app.log | sort | uniq -c | sort -rn
+        the counting pipeline: values, gather, count, rank
+    grep ' ip=' app.log | awk '{print $NF}' | sed 's/^ip=//' \
+        | sort | uniq -c | sort -rn
+        top talkers in the log
+    sed 's/^ *//; s/ *$//' messy.txt | awk 'NF {print tolower($0)}' \
+        | sort -u
+        the messy list, cleaned
