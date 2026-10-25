@@ -124,3 +124,19 @@ chapter over. Keep the lab afterward — a log
 with known answers is a standing rehearsal
 for the day a real one asks the same
 questions.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Regular Expressions for Mere Mortals](https://paulsullivan33-dev.github.io/regex-for-mere-mortals/)
+- [Bash for Mere Mortals](https://paulsullivan33-dev.github.io/bash-for-mere-mortals/)
+- [Finding Files for Mere Mortals](https://paulsullivan33-dev.github.io/finding-files-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/text-processing-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/text-processing-for-mere-mortals/blob/main/LICENSE-CODE).
